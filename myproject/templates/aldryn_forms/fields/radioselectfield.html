@@ -15,7 +15,7 @@
             {% block form_field %}
                 <label for="{{ field.auto_id }}_{{ choice.0 }}">
                     <input type="radio" name="{{ field.name }}" id="{{ field.auto_id }}_{{ choice.0 }}" value="{{ choice.0 }}"{% if choice.0|force_text == field.value|force_text %} checked="checked"{% endif %}>
-                    {{ choice.1 }}
+                    <img src="{{ choice.1 }}" style="background-color:{{ choice.1 }};"  height="42" width="42">
                 </label>
             {% endblock form_field %}
             {% block form_field_errors %}
@@ -35,74 +35,19 @@
     {% endblock form_field_help_text %}    
 {% endif %}
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-    crossorigin="anonymous"></script>
-    
 <script type="text/javascript">
 
 {% for choice in field.field.choices %}
     $("#{{ field.auto_id }}_{{ choice.0 }}").on("click", function() {
         var choice = '{{ choice.1 }}';
-    if ('{{ field.label }}' == 'top') {
+    if ('{{ field.label }}') {
         switch (choice){
-            case 'Red':
-                $('.top').css({ fill: "#F00" });
-                break;
-            case 'Green':
-                $('.top').css({ fill: "#0F0" });
-                break;
-            case 'Blue':
-                $('.top').css({ fill: "#00F" });
+            case choice:
+                $('.{{ field.label }}').css({ fill: choice });
                 break;
             default:
-                $('.top').css({ fill: "#fff" });
+                $('.{{ field.label }}').css({ fill: "#fff" });
         };
-    }; 
-    if ('{{ field.label }}' == 'bottom') {
-        switch (choice){
-            case 'Red':
-                $('.bottom').css({ fill: "#F00" });
-                break;
-            case 'Green':
-                $('.bottom').css({ fill: "#0F0" });
-                break;
-            case 'Blue':
-                $('.bottom').css({ fill: "#00F" });
-                break;
-            default:
-                $('.bottom').css({ fill: "#fff" });
-        };        
-    };
-    if ('{{ field.label }}' == 'back') {
-        switch (choice){
-            case 'Red':
-                $('.back').css({ fill: "#F00" });
-                break;
-            case 'Green':
-                $('.back').css({ fill: "#0F0" });
-                break;
-            case 'Blue':
-                $('.back').css({ fill: "#00F" });
-                break;
-            default:
-                $('.back').css({ fill: "#fff" });
-        };        
-    };
-    if ('{{ field.label }}' == 'neck') {
-        switch (choice){
-            case 'Rose':
-                $('.neck').css({ fill: "#FFE4E1" });
-                break;
-            case 'Grey':
-                $('.neck').css({ fill: "#ddd" });
-                break;
-            case 'Purple':
-                $('.neck').css({ fill: "#9932CC" });
-                break;
-            default:
-                $('.neck').css({ fill: "#fff" });
-        };        
     }; 
 });
 {% endfor %}    

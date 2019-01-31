@@ -6,10 +6,18 @@
 {% block content %}
     <div class="container text-center">
       {% with 940 as width %}  
-
       		{% placeholder content %}
+
       {% endwith %}
     </div>
+    {% addtoblock 'js' %}
+    	<script>
+    		var s = Snap(800, 600),
+    		bigCircle = s.circle(150, 150, 100);
+    		paper.image = s.image('https://www.textures.com/system/gallery/photos/Fabric/Plain%20Fabric/109550/FabricPlain0153_1_270.jpg', 10, 10, 300, 300);
+    		
+    	</script>
+    {% endaddtoblock %}
 {% endblock %}
 
 
