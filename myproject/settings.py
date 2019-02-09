@@ -175,6 +175,7 @@ INSTALLED_APPS = (
     'light_gallery',
     'aldryn_wow',
     'cmsplugin_svg',
+    'projects'
 )
 
 ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
