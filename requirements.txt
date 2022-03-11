@@ -113,7 +113,7 @@ openpyxl==2.4.9
 pbr==5.1.1
 phonenumbers==8.9.13
 phonenumberslite==8.9.13
-Pillow==4.3.0
+Pillow==9.0.1
 premailer==3.2.0
 purl==1.4
 python-dateutil==2.6.0
